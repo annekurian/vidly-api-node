@@ -3,12 +3,12 @@ const express = require("express");
 const config = require("config");
 const app = express();
 
-require("./startup/logging")();
-require("./startup/cors")(app);
-require("./startup/routes")(app);
-require("./startup/db")();
-require("./startup/config")();
-require("./startup/validation")();
+require("./express/startup/logging")();
+require("./express/startup/cors")(app);
+require("./express/startup/routes")(app);
+require("./express/startup/db")();
+require("./express/startup/config")();
+require("./express/startup/validation")();
 
 const port = process.env.PORT || config.get("port");
 const server = app.listen(port, () =>
